@@ -25,7 +25,7 @@ import org.junit.Assert.assertEquals
   }
 
   @Test def `one plus one is three (0pts)?`: Unit = {
-    assert(1 + 1 == 3) // This assertion fails! Go ahead and fix it.
+    assert(1 + 1 == 2) // This assertion fails! Go ahead and fix it.
   }
 
   /**
@@ -50,7 +50,7 @@ import org.junit.Assert.assertEquals
    * when writing tests.
    */
   @Test def `details why one plus one is not three (0pts)`: Unit = {
-    Assert.assertEquals(3, 1 + 1) // Fix me, please!
+    Assert.assertEquals(2, 1 + 1) // Fix me, please!
   }
 
   /**
@@ -97,11 +97,25 @@ import org.junit.Assert.assertEquals
     assert(sum(List(1,2,0)) == 3)
   }
 
+  @Test def `sum of negative numbers`: Unit = {
+    Assert.assertEquals(sum(List(-1, -2, -3)), -6)
+  }
+
+  @Test def `sum of repeated numbers`: Unit = {
+    Assert.assertEquals(sum(List(10, 10, 10)), 30)
+  }
+
+  @Test def `sum of empty list`: Unit = {
+    Assert.assertEquals(sum(List()), 0)
+  }
+
   @Test def `max of a few numbers (10pts)`: Unit = {
     assert(max(List(3, 7, 2)) == 7)
   }
 
-
+  @Test def `max of negative numbers`: Unit = {
+    Assert.assertEquals(max(List(-1, -2, -3)), -1)
+  }
 
   @Rule def individualTestTimeout = new org.junit.rules.Timeout(1000)
 }
