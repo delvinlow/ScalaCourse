@@ -117,5 +117,14 @@ import org.junit.Assert.assertEquals
     Assert.assertEquals(max(List(-1, -2, -3)), -1)
   }
 
+  @Test def `max of empty list throws exception`: Unit = {
+    try {
+      max(List())
+      Assert.fail("No exception has been thrown")
+    } catch {
+      case e: NoSuchElementException => println("Passed")
+    }
+  }
+
   @Rule def individualTestTimeout = new org.junit.rules.Timeout(1000)
 }
